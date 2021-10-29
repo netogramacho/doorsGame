@@ -5,7 +5,7 @@ import { createDoors, updateDoors } from "../../../functions/door"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
-export default function game() {
+export default function Game() {
 
   const router = useRouter()
     
@@ -24,7 +24,7 @@ export default function game() {
     const gift = +router.query.gift
     const assist = doors >= 3 && doors <= 100 && gift > 0 && gift <= doors
     setValidate(assist)
-  }, [doors])
+  }, [doors, router.query.doors, router.query.gift])
 
 
   function renderDoors() {
@@ -44,7 +44,7 @@ export default function game() {
             }
           </div>
           <div className={styles.buttons}>
-            <Link href="/">
+            <Link href="/" passHref>
               <button>Restart</button>
             </Link>
           </div>

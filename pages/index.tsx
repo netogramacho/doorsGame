@@ -1,10 +1,10 @@
 import { useState } from "react"
-import Card from "../components/card"
+import Card from "../components/Card"
 import styles from "../styles/form.module.css"
 import Link from "next/link"
-import InputNumber from "../components/inputNumber"
+import InputNumber from "../components/InputNumber"
 
-export default function form() {
+export default function Form() {
 
   const [amountDoors, setAmountDoors] = useState(3)
   const [hasGift, setHasGift] = useState(1)
@@ -27,7 +27,7 @@ export default function form() {
           onChange={newDoorGift => {setHasGift(newDoorGift)}} />
         </Card> 
         <Card bgcolor="#28a085">
-          <Link href={`/monty-hall-game/${amountDoors}/${hasGift}`}>
+          <Link href={`/monty-hall-game/${amountDoors}/${hasGift}`} passHref>
             <h2 className={styles.link}>Started</h2>
           </Link>
         </Card> 
